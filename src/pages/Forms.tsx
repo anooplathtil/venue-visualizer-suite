@@ -73,7 +73,7 @@ const Forms = () => {
             Create and manage registration and inquiry forms
           </p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2" onClick={() => navigate("/forms/new")}>
           <Plus className="w-4 h-4" />
           Create Form
         </Button>
