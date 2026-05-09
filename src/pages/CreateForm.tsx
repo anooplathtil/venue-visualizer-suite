@@ -576,6 +576,15 @@ const CreateForm = () => {
             <CardContent className="p-4">
               {selectedField ? (
                 <div className="space-y-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full gap-2"
+                    onClick={() => saveToLibrary(selectedField)}
+                  >
+                    <BookmarkPlus className="w-4 h-4" />
+                    Save to Library
+                  </Button>
                   <div className="space-y-2">
                     <Label htmlFor="f-label">Label</Label>
                     <Input
