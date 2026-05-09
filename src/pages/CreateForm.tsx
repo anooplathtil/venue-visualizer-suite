@@ -570,12 +570,25 @@ const CreateForm = () => {
             <CardHeader className="pb-3 border-b border-border">
               <CardTitle className="text-sm font-semibold flex items-center gap-2">
                 <Settings2 className="w-4 h-4" />
-                {selectedField ? "Field Settings" : "Form Settings"}
+                Settings
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4">
-              {selectedField ? (
-                <div className="space-y-4">
+              <Tabs value={selectedField ? "field" : "form"} onValueChange={(v) => {
+                if (v === "form") setSelectedFieldId(null);
+              }} className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-4">
+                  <TabsTrigger value="field" disabled={!selectedField} className="text-xs">
+                    Field
+                  </TabsTrigger>
+                  <TabsTrigger value="form" className="text-xs">
+                    Form
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="field" className="mt-0">
+                  {selectedField ? (
+                    <div className="space-y-4">
                   <Button
                     variant="outline"
                     size="sm"
@@ -684,9 +697,16 @@ const CreateForm = () => {
                       </div>
                     </div>
                   )}
-                </div>
-              ) : (
-                <Tabs defaultValue="general" className="w-full">
+                    </div>
+                  ) : (
+                    <div className="text-center py-8 text-xs text-muted-foreground">
+                      Select a field on the canvas to edit its settings.
+                    </div>
+                  )}
+                </TabsContent>
+
+                <TabsContent value="form" className="mt-0">
+                  <Tabs defaultValue="general" className="w-full">
                   <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="general">General</TabsTrigger>
                     <TabsTrigger value="submit">Submit</TabsTrigger>
@@ -724,8 +744,9 @@ const CreateForm = () => {
                       />
                     </div>
                   </TabsContent>
-                </Tabs>
-              )}
+                  </Tabs>
+                </TabsContent>
+              </Tabs>
             </CardContent>
           </Card>
         </div>
