@@ -11,6 +11,7 @@ import Sites from "./pages/Sites";
 import Microsites from "./pages/Microsites";
 import Pages from "./pages/Pages";
 import Forms from "./pages/Forms";
+import CreateForm from "./pages/CreateForm";
 import StallBookings from "./pages/StallBookings";
 import Submissions from "./pages/Submissions";
 import Settings from "./pages/Settings";
@@ -76,6 +77,14 @@ const App = () => (
             element={
               <WithLayout>
                 <Forms />
+              </WithLayout>
+            }
+          />
+          <Route
+            path="/forms/new"
+            element={
+              <WithLayout>
+                <CreateForm />
               </WithLayout>
             }
           />
