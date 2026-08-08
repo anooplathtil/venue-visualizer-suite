@@ -12,6 +12,7 @@ import {
 import { StatusBadge } from "@/components/ui/status-badge";
 import { SiteBadge } from "@/components/ui/site-badge";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useNavigate } from "react-router-dom";
 
 interface Submission {
   id: string;
