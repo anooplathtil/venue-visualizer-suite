@@ -14,6 +14,7 @@ import Forms from "./pages/Forms";
 import CreateForm from "./pages/CreateForm";
 import StallBookings from "./pages/StallBookings";
 import Submissions from "./pages/Submissions";
+import SubmissionDetail from "./pages/SubmissionDetail";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
