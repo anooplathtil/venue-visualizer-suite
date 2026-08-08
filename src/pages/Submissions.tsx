@@ -87,6 +87,7 @@ const statusMap = {
 const Submissions = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSubmissions, setSelectedSubmissions] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   const filteredSubmissions = mockSubmissions.filter(
     (submission) =>
