@@ -106,6 +106,14 @@ const App = () => (
             }
           />
           <Route
+            path="/submissions/:id"
+            element={
+              <WithLayout>
+                <SubmissionDetail />
+              </WithLayout>
+            }
+          />
+          <Route
             path="/settings"
             element={
               <WithLayout>
