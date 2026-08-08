@@ -206,9 +206,10 @@ const Submissions = () => {
               {filteredSubmissions.map((submission) => (
                 <tr
                   key={submission.id}
-                  className="border-b border-border last:border-0 hover:bg-muted/20 transition-colors"
+                  className="border-b border-border last:border-0 hover:bg-muted/20 transition-colors cursor-pointer"
+                  onClick={() => navigate(`/submissions/${submission.id}`)}
                 >
-                  <td className="py-4 px-4">
+                  <td className="py-4 px-4" onClick={(e) => e.stopPropagation()}>
                     <Checkbox
                       checked={selectedSubmissions.includes(submission.id)}
                       onCheckedChange={() => toggleSelection(submission.id)}
@@ -249,7 +250,15 @@ const Submissions = () => {
                   </td>
                   <td className="py-4 px-4">
                     <div className="flex items-center justify-end gap-2">
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/submissions/${submission.id}`);
+                        }}
+                      >
                         <Eye className="w-4 h-4" />
                       </Button>
                       <DropdownMenu>
